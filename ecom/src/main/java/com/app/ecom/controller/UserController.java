@@ -4,6 +4,7 @@ package com.app.ecom.controller;
 import com.app.ecom.config.AppConstants;
 import com.app.ecom.model.UserDTO;
 import com.app.ecom.model.UserResponse;
+import com.app.ecom.service.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class UserController {
     @GetMapping("/public/users/{userId}")
     public ResponseEntity<UserDTO> getUser(@PathVariable Long userId){
         UserDTO user = userService.getUserById(userId);
-        return new ResponseEntity<UserDto>(user, HttpStatus.FOUND);
+        return new ResponseEntity<UserDTO>(user, HttpStatus.FOUND);
     }
 
     @PutMapping("/public/users/{userId}")
